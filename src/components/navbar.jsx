@@ -4,7 +4,7 @@ import { faStream } from "@fortawesome/free-solid-svg-icons";
 
 class Navbar extends Component {
 	render() {
-		const { appTitle, user, signInWithGoogle, signOut } = this.props;
+		const { appTitle } = this.props;
 		
 		return (
 			<nav className="navbar navbar-light bg-light">
@@ -18,18 +18,8 @@ class Navbar extends Component {
 								</span>
 							</div>					
 							<div className="col align-self-end text-right">							
-								{
-									user 
-									? <span className="navbar-text pr-3">Hello, { user.displayName }</span>
-									: <span className="navbar-text"></span>
-								}
-								{
-									user 
-									? <button className="btn btn-dark" onClick={ signOut }>Sign Out</button>
-									: <button className="btn btn-dark" onClick={ signInWithGoogle }>Sign In with Google</button>
-								}
-							</div>	
-									
+								&nbsp;
+							</div>									
 						</div>
 					</div>
 					
