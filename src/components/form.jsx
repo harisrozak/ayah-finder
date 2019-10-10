@@ -111,6 +111,10 @@ class Form extends Component {
 						<a className="nav-link" id="surah-player-tab" data-toggle="tab" href="#surah-player" 
 						role="tab" aria-controls="surah-player" aria-selected="false">Surah Player</a>
 					</li>
+					<li className="nav-item">
+						<a className="nav-link" id="about-tab" data-toggle="tab" href="#about" 
+						role="tab" aria-controls="about" aria-selected="false">About</a>
+					</li>
 				</ul>
 				<div className="tab-content" id="myTabContent">
 					<div className="tab-pane fade show active" id="go-to-ayah" role="tabpanel" aria-labelledby="go-to-ayah-tab">						
@@ -131,6 +135,19 @@ class Form extends Component {
 					</div>
 					<div className="tab-pane fade" id="surah-player" role="tabpanel" aria-labelledby="surah-player-tab">
 						<div className="alert alert-info mt-4">Coming soon :)</div>
+					</div>
+					<div className="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+						<div className="alert alert-info mt-4">
+							<h5 className="my-2">Thank you for using my app</h5>
+							<hr></hr>
+							<p>								
+								Crafted with <a href="https://reactjs.org/">ReactJS</a> with those selected components taken from <a href="https://www.npmjs.com/">NPM</a> 
+								<br></br>
+								API are taken from <a href="https://alquran.cloud/">https://alquran.cloud/</a>
+								<br></br>
+								Developed by <a href="https://harisrozak.github.io">harisrozak</a>
+							</p>
+						</div>
 					</div>
 				</div>					
 			</React.Fragment>

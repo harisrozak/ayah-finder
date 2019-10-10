@@ -59,7 +59,7 @@ class App extends Component {
 		limit = limit < 1 ? 1 : limit;
 		
 		// api url
-		let apiUrl = "http://api.alquran.cloud/v1/surah/";
+		let apiUrl = "https://api.alquran.cloud/v1/surah/";
 		apiUrl += data.inputSurah;
 		apiUrl += "/editions/quran-uthmani,";
 		apiUrl += data.inputTranslation;
@@ -94,7 +94,7 @@ class App extends Component {
 	
 	handlePlayAudio( surahNumber, ayahNumber ) {
 		// api url
-		let apiUrl = "http://api.alquran.cloud/v1/ayah/";
+		let apiUrl = "https://api.alquran.cloud/v1/ayah/";
 		apiUrl += surahNumber + ':' + ayahNumber;
 		apiUrl += "/editions/ar.alafasy";
 		
@@ -128,7 +128,7 @@ class App extends Component {
 	
 	handleSearchAyah( data ) {
 		// api url
-		let apiUrl = "http://api.alquran.cloud/v1/search/";
+		let apiUrl = "https://api.alquran.cloud/v1/search/";
 		apiUrl += data.textToSearch;
 		apiUrl += "/all/";
 		apiUrl += data.inputTranslation;
@@ -163,7 +163,7 @@ class App extends Component {
 	
 	handleViewDetails( surahNumber, ayahNumber ) {
 		// api url
-		let apiUrl = "http://api.alquran.cloud/v1/ayah/";
+		let apiUrl = "https://api.alquran.cloud/v1/ayah/";
 		apiUrl += surahNumber + ':' + ayahNumber;
 		apiUrl += "/editions/quran-uthmani,";
 		apiUrl += "id.indonesian";
