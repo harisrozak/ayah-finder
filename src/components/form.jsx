@@ -28,6 +28,20 @@ class Form extends Component {
 		this.state.selectedSurah = numberedSurah[ 0 ];
 	}
 	
+	componentDidUpdate( prevProps, prevState ) {	
+		const { inputAyahFrom, inputAyahTo } = this.state;
+		
+		// inputAyahFrom
+		if( prevState.inputAyahFrom !== inputAyahFrom && inputAyahTo < inputAyahFrom ) {
+			this.setState( { inputAyahTo: inputAyahFrom } );
+		}
+		
+		// inputAyahTo
+		if( prevState.inputAyahTo !== inputAyahTo && inputAyahTo < inputAyahFrom ) {
+			this.setState( { inputAyahFrom: inputAyahTo } );
+		}
+	}
+	
 	handleValue( type, event ) {		
 		switch ( type ) {
 			case "surah":
@@ -71,8 +85,11 @@ class Form extends Component {
 	}
 	
 	handleSearchAyah( event ) {
+		const { onSearchAyah, app } = this.props;
+		const appSearchAyah = onSearchAyah.bind( app, this.state );
+		
 		// do search ayah
-		this.props.onSearchAyah( this.props.app, this.state );
+		appSearchAyah();
 		
 		// prevent reloading after submit
 		event.preventDefault();
@@ -83,10 +100,16 @@ class Form extends Component {
 			<React.Fragment>
 				<ul className="nav nav-tabs" id="myTab" role="tablist">
 					<li className="nav-item">
-						<a className="nav-link active" id="go-to-ayah-tab" data-toggle="tab" href="#go-to-ayah" role="tab" aria-controls="go-to-ayah" aria-selected="true">Go to Ayah</a>
+						<a className="nav-link active" id="go-to-ayah-tab" data-toggle="tab" href="#go-to-ayah" 
+						role="tab" aria-controls="go-to-ayah" aria-selected="true">Go to Ayah</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" id="search-ayah-tab" data-toggle="tab" href="#search-ayah" role="tab" aria-controls="search-ayah" aria-selected="false">Search Ayah by Keywords</a>
+						<a className="nav-link" id="search-ayah-tab" data-toggle="tab" href="#search-ayah" 
+						role="tab" aria-controls="search-ayah" aria-selected="false">Search Ayah by Keywords</a>
+					</li>
+					<li className="nav-item">
+						<a className="nav-link" id="surah-player-tab" data-toggle="tab" href="#surah-player" 
+						role="tab" aria-controls="surah-player" aria-selected="false">Surah Player</a>
 					</li>
 				</ul>
 				<div className="tab-content" id="myTabContent">
@@ -105,6 +128,9 @@ class Form extends Component {
 							onChange = { this.handleValue }
 							state = { this.state }
 						/>
+					</div>
+					<div className="tab-pane fade" id="surah-player" role="tabpanel" aria-labelledby="surah-player-tab">
+						<div className="alert alert-info mt-4">Coming soon :)</div>
 					</div>
 				</div>					
 			</React.Fragment>

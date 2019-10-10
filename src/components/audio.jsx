@@ -2,7 +2,7 @@ import React from "react";
 import ReactAudioPlayer from "react-audio-player";
 import surah from "./surah";
 
-const AudioPlayer = ( { app, audioData, onCloseAudio, isLoadingAudioData } ) => {
+const AudioPlayer = ( { app, audioData, onCloseAudio, isLoadingAudioData } ) => {	
 	if( isLoadingAudioData ) {
 		return (
 			<div className="toast audio-container">
